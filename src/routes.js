@@ -1,6 +1,7 @@
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Post from "./pages/Post";
 
 const routes = [
   {
@@ -14,6 +15,10 @@ const routes = [
   {
     component: Contact,
     path: "/contact"
+  },
+  {
+    component: Post,
+    path: "/post/:post_id"
   }
 ];
 
