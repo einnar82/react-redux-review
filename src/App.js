@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import routes from "./routes";
+import LogComponent from "./concerns/LogComponent";
 class App extends React.Component {
   render() {
     return (
@@ -15,6 +16,7 @@ class App extends React.Component {
                   exact={item.path === "/" ? true : false}
                   path={item.path}
                   component={item.component}
+                  key={key}
                 />
               );
             })}
@@ -25,4 +27,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default LogComponent(App);

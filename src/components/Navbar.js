@@ -2,7 +2,6 @@ import React from "react";
 import { Link, NavLink, withRouter } from "react-router-dom";
 
 const Navbar = props => {
-  console.log(props);
   return (
     <nav>
       <div className="nav-wrapper">
@@ -25,4 +24,5 @@ const Navbar = props => {
   );
 };
 
+// withRouter is a HOC for supercharge the react router
 export default withRouter(Navbar);
