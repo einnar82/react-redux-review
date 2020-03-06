@@ -20,9 +20,9 @@ const Navbar = props => {
   return (
     <nav>
       <div className="nav-wrapper">
-        <a href="/" className="brand-logo">
+        <NavLink to="/" className="brand-logo">
           Fatebook
-        </a>
+        </NavLink>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
           {navList.map((item, key) => (
             <li key={key}>
@@ -36,4 +36,5 @@ const Navbar = props => {
 };
 
 // withRouter is a HOC for supercharge the component with react router functions
+// Also withRouter can access the props of react router
 export default withRouter(Navbar);

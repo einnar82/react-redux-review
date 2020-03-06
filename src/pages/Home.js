@@ -1,24 +1,17 @@
 import React from "react";
-import { httpClient } from "../helpers/network";
+import { connect } from "react-redux";
+import { fetchPosts } from "../redux/actions/posts";
 
 class Home extends React.Component {
-  state = {
-    posts: []
-  };
   componentDidMount() {
-    httpClient({
-      url: "/posts",
-      method: "get"
-    }).then(response => {
-      this.setState({ posts: response.data });
-    });
+    this.props.fetchPosts();
   }
 
   viewPost = post => {
-    this.props.history.push(`/post/${post.id}`, post);
+    this.props.history.push(`/post/${post.id}`);
   };
   render() {
-    const { posts } = this.state;
+    const { posts } = this.props;
 
     const postList = posts.length ? (
       posts.map((item, key) => (
@@ -37,7 +30,7 @@ class Home extends React.Component {
         </div>
       ))
     ) : (
-      <h4 className="center">No posts available</h4>
+      <h4 className="center">Loading...</h4>
     );
 
     return (
@@ -48,4 +41,16 @@ class Home extends React.Component {
     );
   }
 }
-export default Home;
+const mapStateToProps = state => {
+  return {
+    posts: state.posts
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchPosts: () => dispatch(fetchPosts())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
