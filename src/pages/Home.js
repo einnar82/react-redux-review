@@ -13,12 +13,21 @@ class Home extends React.Component {
       this.setState({ posts: response.data });
     });
   }
+
+  viewPost = post => {
+    this.props.history.push(`/post/${post.id}`, post);
+  };
   render() {
     const { posts } = this.state;
 
     const postList = posts.length ? (
       posts.map((item, key) => (
-        <div className="col s12 m12 l12" key={key}>
+        <div
+          className="col s12 m12 l12"
+          key={key}
+          style={{ cursor: "pointer" }}
+          onClick={() => this.viewPost(item)}
+        >
           <div className="card blue-grey darken-1">
             <div className="card-content white-text">
               <span className="card-title">{item.title}</span>

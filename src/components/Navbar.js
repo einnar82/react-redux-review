@@ -25,10 +25,8 @@ const Navbar = props => {
         </a>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
           {navList.map((item, key) => (
-            <li>
-              <NavLink to={item.to} key={key}>
-                {item.name}
-              </NavLink>
+            <li key={key}>
+              <NavLink to={item.to}>{item.name}</NavLink>
             </li>
           ))}
         </ul>
