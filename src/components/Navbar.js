@@ -1,28 +1,41 @@
 import React from "react";
-import { Link, NavLink, withRouter } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
+
+const navList = [
+  {
+    to: "/",
+    name: "Home"
+  },
+  {
+    to: "/about",
+    name: "About"
+  },
+  {
+    to: "/contact",
+    name: "Contact"
+  }
+];
 
 const Navbar = props => {
   return (
     <nav>
       <div className="nav-wrapper">
-        <a href="#" className="brand-logo">
+        <a href="/" className="brand-logo">
           Fatebook
         </a>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
-          <li>
-            <NavLink to="/">Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/about">About</NavLink>
-          </li>
-          <li>
-            <NavLink to="/contact">Contact</NavLink>
-          </li>
+          {navList.map((item, key) => (
+            <li>
+              <NavLink to={item.to} key={key}>
+                {item.name}
+              </NavLink>
+            </li>
+          ))}
         </ul>
       </div>
     </nav>
   );
 };
 
-// withRouter is a HOC for supercharge the react router
+// withRouter is a HOC for supercharge the component with react router functions
 export default withRouter(Navbar);

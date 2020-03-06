@@ -30,6 +30,7 @@ class Home extends React.Component {
     ) : (
       <h4 className="center">No posts available</h4>
     );
+
     return (
       <div className="container">
         <h4 className="center">Posts</h4>
