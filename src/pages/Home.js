@@ -42,6 +42,8 @@ class Home extends React.Component {
   }
 }
 const mapStateToProps = state => {
+  // mapStateToProps has 2 parameters, the redux state
+  // and the component props
   return {
     posts: state.posts
   };

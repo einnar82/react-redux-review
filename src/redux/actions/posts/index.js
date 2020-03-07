@@ -1,4 +1,4 @@
-//action creators are the return data of actions
+//actions are payloads of information
 export const deletePostAction = id => {
   return {
     type: "DELETE_POST",
