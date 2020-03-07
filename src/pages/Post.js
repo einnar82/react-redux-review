@@ -50,7 +50,7 @@ const mapStateToProps = (state, ownProps) => {
   //state is the redux state
   const postId = ownProps.match.params.post_id;
   return {
-    post: state.posts.find(post => post.id === Number(postId))
+    post: state.posts.posts.find(post => post.id === Number(postId))
   };
 };
 
