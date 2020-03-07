@@ -1,9 +1,16 @@
 import { httpClient } from "../../../helpers/network";
 //action creators are the return data of actions
-export const deletePost = id => {
+export const deletePostAction = id => {
   return {
     type: "DELETE_POST",
-    id
+    payload: id
+  };
+};
+
+export const fetchPostAction = posts => {
+  return {
+    type: "GET_POSTS",
+    payload: posts
   };
 };
 
@@ -13,10 +20,18 @@ export const fetchPosts = () => {
       url: "/posts",
       method: "get"
     }).then(response => {
-      dispatch({
-        type: "GET_POSTS",
-        posts: response.data
-      });
+      dispatch(fetchPostAction(response.data));
+    });
+  };
+};
+
+export const deletePost = id => {
+  return (dispatch, getState) => {
+    return httpClient({
+      url: `/posts/${id}`,
+      method: "delete"
+    }).then(response => {
+      dispatch(deletePostAction(id));
     });
   };
 };

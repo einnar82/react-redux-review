@@ -4,17 +4,22 @@ const initialState = {
 const postsReducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_POST":
-      return [...state.posts, action.payload];
+      return {
+        ...state,
+        posts: [...state.posts, action.payload]
+      };
     case "GET_POSTS":
       return {
         ...state,
-        posts: [...action.posts]
+        posts: [...action.payload]
       };
     case "DELETE_POST":
-      const newPosts = state.posts.filter(post => post.id !== action.id);
+      const updatedPosts = state.posts.filter(
+        post => post.id !== action.payload.id
+      );
       return {
         ...state,
-        posts: newPosts
+        posts: updatedPosts
       };
     default:
       return state;

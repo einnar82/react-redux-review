@@ -46,18 +46,20 @@ Post.defaultProps = {
 };
 
 const mapStateToProps = (state, ownProps) => {
+  //ownProps is the component props
+  //state is the redux state
   const postId = ownProps.match.params.post_id;
   return {
     post: state.posts.find(post => post.id === Number(postId))
   };
 };
 
+//dispatch actions without calling the store.dispatch() method
 const mapDispatchToProps = dispatch => {
   return {
-    deletePost: id => {
-      dispatch(deletePost(Number(id)));
-    }
+    deletePost: id => dispatch(deletePost(Number(id)))
   };
 };
 
+//connect() is a HOC for react-redux for connecting state and actions to components
 export default connect(mapStateToProps, mapDispatchToProps)(Post);
