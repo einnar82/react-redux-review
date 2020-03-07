@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchPosts } from "../redux/actions/posts";
+import { fetchPosts } from "../redux/services/posts";
 
 class Home extends React.Component {
   componentDidMount() {

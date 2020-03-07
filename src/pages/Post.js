@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { deletePost } from "../redux/actions/posts";
+import { deletePost } from "../redux/services/posts";
 
 class Post extends React.Component {
   handleDeletePost = id => {
