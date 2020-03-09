@@ -27,3 +27,5 @@ export const deletePost = id => {
     dispatch(deletePostAction(payload));
   };
 };
+
+export default { fetchPosts, deletePost };
