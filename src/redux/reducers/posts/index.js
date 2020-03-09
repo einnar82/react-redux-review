@@ -14,7 +14,6 @@ const postsReducer = (state = initialState, action) => {
         posts: [...state.posts, action.payload]
       };
     case "GET_POSTS":
-      console.log(action);
       return {
         ...state,
         posts: [...action.payload]
