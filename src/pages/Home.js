@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import * as postActions from "../redux/actions/posts";
+import { fetchPosts } from "../redux/actions/posts";
 
 class Home extends React.Component {
   componentDidMount() {
@@ -50,7 +50,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  ...postActions
+  fetchPosts
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
