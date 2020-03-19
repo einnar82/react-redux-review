@@ -1,10 +1,10 @@
 import { createStore, applyMiddleware } from "redux";
 import thunkMiddleware from "redux-thunk";
-import postsReducer from "../reducers/posts";
+import reducers from "../reducers";
 
 export default function configureStore(preloadedState) {
   return createStore(
-    postsReducer,
+    reducers,
     preloadedState,
     applyMiddleware(thunkMiddleware)
   );

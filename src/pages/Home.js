@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchPosts } from "../redux/services/posts";
+import { fetchPosts } from "../redux/actions/posts";
 
 class Home extends React.Component {
   componentDidMount() {
@@ -45,14 +45,12 @@ const mapStateToProps = state => {
   // mapStateToProps has 2 parameters, the redux state
   // and the component props
   return {
-    posts: state.posts
+    posts: state.posts.posts
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    fetchPosts: () => dispatch(fetchPosts())
-  };
+const mapDispatchToProps = {
+  fetchPosts
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
